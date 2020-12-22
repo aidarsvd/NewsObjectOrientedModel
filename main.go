@@ -25,7 +25,13 @@ type Source struct {
 
 func(article News) showSource(indexOfArticle int){
 	name := article.articles[indexOfArticle].source.name
-	fmt.Println(name)
+	fmt.Printf("Name of the resource: %v\n", name)
+}
+
+func (article News) showAuthor(indexOfArticle int) {
+	author := article.articles[indexOfArticle].author
+	fmt.Printf("Author of the article: %v\n", author)
+
 }
 
 func main() {
@@ -69,4 +75,5 @@ func main() {
 		publishedAt: "2020-12-09T05:30:00Z"}
 
 	article.showSource(0)
+	article.showAuthor(0)
 }
