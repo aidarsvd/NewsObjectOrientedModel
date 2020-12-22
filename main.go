@@ -31,7 +31,21 @@ func(article News) showSource(indexOfArticle int){
 func (article News) showAuthor(indexOfArticle int) {
 	author := article.articles[indexOfArticle].author
 	fmt.Printf("Author of the article: %v\n", author)
+}
 
+func (article News) showTitle(indexOfArticle int) {
+	title := article.articles[indexOfArticle].title
+	fmt.Printf("Title of the article: %v\n", title)
+}
+
+func (article News) showDescription(indexOfArticle int) {
+	descr := article.articles[indexOfArticle].description
+	fmt.Printf("Description of the article: %v\n", descr)
+}
+
+func (article News) showDate(indexOfArticle int) {
+	date := article.articles[indexOfArticle].publishedAt
+	fmt.Printf("Article published at: %v\n", date)
 }
 
 func main() {
@@ -49,7 +63,6 @@ func main() {
 		url:         "https://www.rbc.ru/business/09/12/2020/5fcf6a639a7947630700608f",
 		urlToImage:  "https://s0.rbk.ru/v6_top_pics/media/img/8/01/756074900470018.jpg",
 		publishedAt: "2020-12-09T06:24:00Z"}
-
 	article.articles[1] = NewsObjects{
 		source: Source{
 			id:   "Ria.ru",
@@ -61,7 +74,6 @@ func main() {
 		url:         "https://ria.ru/20201209/vaktsinatsiya-1588332309.html",
 		urlToImage:  "https://cdn24.img.ria.ru/images/sharing/article/1588332309.jpg?15875579151607496721",
 		publishedAt: "2020-12-09T05:47:33Z"}
-
 	article.articles[2] = NewsObjects{
 		source: Source{
 			id:   "Meduza",
@@ -76,4 +88,8 @@ func main() {
 
 	article.showSource(0)
 	article.showAuthor(0)
+	article.showTitle(0)
+	article.showDescription(0)
+	article.showDate(0)
+
 }
