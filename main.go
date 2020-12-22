@@ -5,7 +5,7 @@ import "fmt"
 type News struct {
 	status string
 	totalResults int
-	articles [5]NewsObjects
+	articles [3]NewsObjects
 }
 type NewsObjects struct {
 	source Source
@@ -48,6 +48,20 @@ func (article News) showDate(indexOfArticle int) {
 	fmt.Printf("Article published at: %v\n", date)
 }
 
+func (size News)getLen()int{
+	return len(size.articles)
+}
+
+func showAll(size int, article News) {
+	for i:=0; i<size; i++{
+		article.showSource(i)
+		article.showAuthor(i)
+		article.showTitle(i)
+		article.showDescription(i)
+		article.showDate(i)
+	}
+}
+
 func main() {
 	var article News
 	article.status = "ok"
@@ -86,10 +100,5 @@ func main() {
 		urlToImage:  "https://meduza.io/imgly/share/1607492817/news/2020/12/09/pszh-i-istanbul-ne-doigrali-match-ligi-chempionov-futbolisty-obvinili-arbitra-v-rasizme",
 		publishedAt: "2020-12-09T05:30:00Z"}
 
-	article.showSource(0)
-	article.showAuthor(0)
-	article.showTitle(0)
-	article.showDescription(0)
-	article.showDate(0)
-
+	//showAll(article.getLen(), article)
 }
