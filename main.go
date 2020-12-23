@@ -23,12 +23,13 @@ type Source struct {
 	name string
 }
 
-func(article News) showSource(indexOfArticle int){
+
+func(article *News) showSource(indexOfArticle int){
 	name := article.articles[indexOfArticle].source.name
 	fmt.Printf("Name of the resource: %v\n", name)
 }
 
-func (article News) showAuthor(indexOfArticle int) {
+func (article *News) showAuthor(indexOfArticle int) {
 	author := article.articles[indexOfArticle].author
 	fmt.Printf("Author of the article: %v\n", author)
 }
@@ -100,5 +101,6 @@ func main() {
 		urlToImage:  "https://meduza.io/imgly/share/1607492817/news/2020/12/09/pszh-i-istanbul-ne-doigrali-match-ligi-chempionov-futbolisty-obvinili-arbitra-v-rasizme",
 		publishedAt: "2020-12-09T05:30:00Z"}
 
+	article.showSource(2)
 	//showAll(article.getLen(), article)
 }
